@@ -1,0 +1,625 @@
+<!doctype html>
+<html class="no-js" lang="pt-br">
+	<head>
+	
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Recibo Vale Transporte</title>
+		<link rel="stylesheet" href="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css">
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="css/estilo.css">
+		<script  type = "text/javascript" src="javascript/funcoes.js"></script>
+		<script type="text/javascript" src="js/jspdf.min.js"></script>
+		
+		
+		<style type="text/css">
+			.multi-step-checkout-process-step {
+			  margin-top: 20px;
+			  margin-bottom: 3rem;
+
+			}
+
+
+			@media screen and (max-width: 39.9375em) {
+			  .multi-step-checkout-process-step {
+			    padding-right: 0rem;
+			  }
+			}
+
+			.multi-step-checkout-process .accordion-title {
+			  color: #3e3e3e;
+			  font-size: 1.25rem;
+			  transition: color 0.5s ease;
+			  border: none;
+			  font-family: 'Droid serif', serif;
+			}
+
+			.multi-step-checkout-process .accordion-title:hover, .multi-step-checkout-process .accordion-title:active, .multi-step-checkout-process .accordion-title:focus {
+			  color: #242424;
+			  transition: color 0.5s ease;
+			  background: none;
+
+			}
+
+			.multi-step-checkout-process :last-child:not(.is-active) > .accordion-title {
+			  border: none;
+			}
+
+			.multi-step-checkout-process .accordion-item {
+			  border-bottom: 1px solid #e6e6e6;
+			  padding-right: 0.8rem;
+			}
+
+			.multi-step-checkout-process .accordion-item:first-child() {
+			  border-top: 1px solid #e6e6e6;
+			}
+
+			.multi-step-checkout-process .accordion-item.is-active {
+			  border: 1px solid #e6e6e6;
+			  border-top: 3px solid #1779ba;
+			  border-radius: 3px;
+			  box-shadow: 0px 2px 5px 1px rgba(0, 0, 0, 0.1);
+			}
+
+			.multi-step-checkout-process .accordion-item .accordion-title {
+			  font-weight: 400;
+			}
+
+			.multi-step-checkout-process .accordion-item .accordion-title::before {
+			  right: 0.5rem;
+			}
+
+			.multi-step-checkout-process .accordion-content {
+			  border: none;
+			  padding-left: 35px;
+			}
+
+			.multi-step-checkout-process :last-child > .accordion-content:last-child {
+			  border-bottom: none;
+			}
+
+			.multi-step-checkout-step-title-subheader {
+			  color: #a4a4a4;
+			  font-size: 0.9rem;
+			  display: inline-block;
+			  margin-left: 10px;
+			  font-family: 'Open sans', serif;
+			}
+
+			.multi-step-checkout-step-subheader {
+			  color: #3e3e3e;
+			  font-size: 0.9rem;
+			  font-weight: 600;
+			  font-family: 'Open sans', sans-serif;
+			}
+
+			.multi-step-checkout-step-subdesc {
+			  color: #8a8a8a;
+			  font-size: 0.9rem;
+			}
+
+			.multi-step-checkout-shipping-option {
+			  margin-bottom: 10px;
+			}
+
+			.multi-step-checkout-step-section {
+			  border-bottom: 1px dashed #e6e6e6;
+			  padding-bottom: 10px;
+			  margin-bottom: 20px;
+			}
+
+			.multi-step-checkout-shipping-option-selection {
+			  position: absolute;
+			  margin-top: 0.2rem;
+			}
+
+			.multi-step-checkout-shipping-option-title {
+			  display: block;
+			  font-size: 0.9rem;
+			  line-height: 1.4rem;
+			  margin-left: 1.6rem;
+			  margin-bottom: 0.8rem;
+			}
+
+			.multi-step-checkout-shipping-option-desc {
+			  font-size: 0.9rem;
+			  color: #8a8a8a;
+			  margin-left: 25px;
+			  margin-top: -10px;
+			}
+
+			.multi-step-checkout-shipping-cost {
+			  text-align: right;
+			}
+
+			.multi-step-checkout-form-divider {
+			  border-bottom: 1px dashed #e6e6e6;
+			}
+
+			.multi-step-checkout-form input {
+			  background: #f8f8f8;
+			  color: black;
+			}
+
+			.multi-step-checkout-enews-sign-up label {
+			  position: relative;
+			  margin-left: 1.5rem;
+			  margin-bottom: 1.5rem;
+			}
+
+			.multi-step-checkout-enews-sign-up-checkbox {
+			  position: absolute;
+			  margin-top: 0.4rem;
+			}
+
+			.multi-step-checkout-credit-card-info label span {
+			  color: #a4a4a4;
+			}
+
+			.multi-step-checkout-payment-icons {
+			  list-style: none;
+			  margin-left: 0;
+			  margin-bottom: 1rem;
+			}
+
+			.multi-step-checkout-payment-icons li {
+			  display: inline;
+			}
+
+			.multi-step-checkout-billing-address .multi-step-checkout-billing-address-list {
+			  list-style: none;
+			  margin-left: 1.5rem;
+			  margin-top: 1rem;
+			  margin-bottom: 0.8rem;
+			  color: #8a8a8a;
+			  font-size: 0.9rem;
+			}
+
+			.multi-step-checkout-billing-address .multi-step-checkout-billing-address-checkbox {
+			  position: absolute;
+			  margin-top: 0.4rem;
+			}
+
+			.multi-step-checkout-billing-address label {
+			  margin-left: 1.5rem;
+			}
+
+			.multi-step-checkout-create-account {
+			  margin-top: 2rem;
+			}
+
+			@media screen and (max-width: 39.9375em) {
+			  .multi-step-checkout-create-account {
+			    margin-top: 0.5rem;
+			  }
+			}
+
+			.multi-step-checkout-create-account .create-account-desc {
+			  font-size: 0.9rem;
+			  color: #8a8a8a;
+			}
+
+			.multi-step-checkout-logo {
+			  width: 118px;
+			  height: 38px;
+			}
+
+			.multi-step-checkout-arrow {
+			  height: 13px;
+			  width: 13px;
+			}
+
+			.button{
+				background-color:#190B07; 	
+			}
+		</style>
+
+		
+  
+    <script type="text/javascript">
+
+    
+      function chama() {
+    
+        document.getElementById('gerar').onclick = pega;
+      }
+
+     
+      function pega() {
+        var loja = document.getElementById('loja').value;
+		var cnpj = document.getElementById('cnpj').value;
+		var nume = document.getElementById('numero').value;
+		var valor = document.getElementById('valor').value;
+		var importancia = document.getElementById('importancia').value;
+		var inicio = document.getElementById('inicio').value;
+		var fim = document.getElementById('fim').value;
+		var dias = document.getElementById('dias').value;
+		var faltas = document.getElementById('faltas').value;
+		var nome = document.getElementById('nome').value;
+
+		if( valor =="" || importancia=="" || inicio =="" || fim =="" || dias =="" || nome ==""){
+			alert('Preencha todos os campos do Formulário.');
+			 valor.focus();
+			 return false;
+		}else{
+			alert('Vão ser geradas duas vias do Recibo de Vale Transporte em PDF do funcionário(a) '+nome+'.\nClique em OK para finalizar.');
+
+		}
+
+
+        var pdf = new jsPDF();
+        
+
+        pdf.setProperties({
+          title: 'Recibo Vale Transporte',
+          subject: 'Recibo ' + nume,
+          author: 'Rafael Oliveira',
+          keywords: 'gerador de recibos pessoal',
+          creator: 'gPDF, javascript, web 2.0, ajax'
+        });
+
+	    pdf.setFont("helvetica");
+		pdf.setFontType("normal");
+	    pdf.setFontSize(22);
+        pdf.text(20, 20, '                                 RECIBO');
+		pdf.setTextColor(0); 
+	    pdf.setFontSize(18);
+		pdf.text(146, 30,                            'Valor  R$ '+valor);
+        pdf.setFontSize(12);
+        pdf.text(20, 50, 'RECEBI DE: ' +loja);
+        pdf.text(20, 58, 'CNPJ: ' +cnpj);
+        pdf.text(20, 66, 'A IMPORTÂNCIA DE: ( ' +importancia+' ).');
+        pdf.text(20, 74, 'REFERENTE A: VALE TRANSPORTE.');
+        pdf.text(20, 82, 'PERÍODO DE: ' +inicio+' a ' +fim+'.');
+        pdf.text(20, 90, 'REFERENTE A: ' +dias+' DIAS.           FALTAS: '+faltas+'.');
+		pdf.text(20, 106, 'DATA:___________________________');
+		pdf.text(20, 114, 'ASSINATURA:_________________________________________');
+		pdf.text(20, 122,'NOME: ' +nome+'.');
+		pdf.text(10, 8, '_________________________________________________________________________________');
+		pdf.text(10, 12, '|');
+		pdf.text(10, 16, '|');
+		pdf.text(10, 20, '|');
+		pdf.text(10, 24, '|');
+		pdf.text(10, 28, '|');
+		pdf.text(10, 32, '|');
+		pdf.text(10, 36, '|');
+		pdf.text(10, 40, '|');
+		pdf.text(10, 44, '|');
+		pdf.text(10, 48, '|');
+		pdf.text(10, 52, '|');
+		pdf.text(10, 56, '|');
+		pdf.text(10, 60, '|');
+		pdf.text(10, 64, '|');
+		pdf.text(10, 68, '|');
+		pdf.text(10, 72, '|');
+		pdf.text(10, 76, '|');
+		pdf.text(10, 80, '|');
+		pdf.text(10, 84, '|');
+		pdf.text(10, 88, '|');
+		pdf.text(10, 92, '|');
+		pdf.text(10, 96, '|');
+		pdf.text(10, 100, '|');
+		pdf.text(10, 104, '|');
+		pdf.text(10, 108, '|');
+		pdf.text(10, 112, '|');
+		pdf.text(10, 116, '|');
+		pdf.text(10, 120, '|');
+		pdf.text(10, 124, '|');
+		pdf.text(10, 128, '|');
+		pdf.text(10, 132, '|_________________________________________________________________________________');
+		pdf.text(200, 132, '|');
+		pdf.text(200, 12, '|');
+		pdf.text(200, 16, '|');
+		pdf.text(200, 20, '|');
+		pdf.text(200, 24, '|');
+		pdf.text(200, 28, '|');
+		pdf.text(200, 32, '|');
+		pdf.text(200, 36, '|');
+		pdf.text(200, 40, '|');
+		pdf.text(200, 44, '|');
+		pdf.text(200, 48, '|');
+		pdf.text(200, 52, '|');
+		pdf.text(200, 56, '|');
+		pdf.text(200, 60, '|');
+		pdf.text(200, 64, '|');
+		pdf.text(200, 68, '|');
+		pdf.text(200, 72, '|');
+		pdf.text(200, 76, '|');
+		pdf.text(200, 80, '|');
+		pdf.text(200, 84, '|');
+		pdf.text(200, 88, '|');
+		pdf.text(200, 92, '|');
+		pdf.text(200, 96, '|');
+		pdf.text(200, 100, '|');
+		pdf.text(200, 104, '|');
+		pdf.text(200, 108, '|');
+		pdf.text(200, 112, '|');
+		pdf.text(200, 116, '|');
+		pdf.text(200, 120, '|');
+		pdf.text(200, 124, '|');
+		pdf.text(200, 128, '|');
+
+		pdf.setFont("helvetica");
+		pdf.setFontType("normal");
+	    pdf.setFontSize(22);
+        pdf.text(20, 174, '                                 RECIBO');
+		pdf.setTextColor(0); //isso deve ser preto
+	    pdf.setFontSize(18);
+		pdf.text(146, 184,                            'Valor  R$ '+valor);
+        pdf.setFontSize(12);
+        pdf.text(20, 204, 'RECEBI DE: ' +loja);
+        pdf.text(20, 212, 'CNPJ: ' +cnpj);
+        pdf.text(20, 220, 'A IMPORTÂNCIA DE: ( ' +importancia+' ).');
+        pdf.text(20, 228, 'REFERENTE A: VALE TRANSPORTE.');
+        pdf.text(20, 236, 'PERÍODO DE: ' +inicio+' a ' +fim+'.');
+        pdf.text(20, 244, 'REFERENTE A: ' +dias+' DIAS.           FALTAS: '+faltas);
+		pdf.text(20, 252, 'DATA:___________________________');
+		pdf.text(20, 260, 'ASSINATURA:_________________________________________');
+		pdf.text(20, 268,'NOME: ' +nome);
+		pdf.text(10, 162, '_________________________________________________________________________________');
+		pdf.text(10, 166, '|');
+		pdf.text(10, 170, '|');
+		pdf.text(10, 174, '|');
+		pdf.text(10, 178, '|');
+		pdf.text(10, 182, '|');
+		pdf.text(10, 186, '|');
+		pdf.text(10, 190, '|');
+		pdf.text(10, 194, '|');
+		pdf.text(10, 198, '|');
+		pdf.text(10, 202, '|');
+		pdf.text(10, 206, '|');
+		pdf.text(10, 210, '|');
+		pdf.text(10, 214, '|');
+		pdf.text(10, 218, '|');
+		pdf.text(10, 222, '|');
+		pdf.text(10, 226, '|');
+		pdf.text(10, 230, '|');
+		pdf.text(10, 234, '|');
+		pdf.text(10, 238, '|');
+		pdf.text(10, 242, '|');
+		pdf.text(10, 246, '|');
+		pdf.text(10, 250, '|');
+		pdf.text(10, 254, '|');
+		pdf.text(10, 258, '|');
+		pdf.text(10, 262, '|');
+		pdf.text(10, 266, '|');
+		pdf.text(10, 270, '|');
+		pdf.text(10, 274, '|');
+		pdf.text(10, 278, '|_________________________________________________________________________________');
+		pdf.text(200, 166, '|');
+		pdf.text(200, 170, '|');
+		pdf.text(200, 174, '|');
+		pdf.text(200, 178, '|');
+		pdf.text(200, 182, '|');
+		pdf.text(200, 186, '|');
+		pdf.text(200, 190, '|');
+		pdf.text(200, 194, '|');
+		pdf.text(200, 198, '|');
+		pdf.text(200, 202, '|');
+		pdf.text(200, 206, '|');
+		pdf.text(200, 210, '|');
+		pdf.text(200, 214, '|');
+		pdf.text(200, 218, '|');
+		pdf.text(200, 222, '|');
+		pdf.text(200, 226, '|');
+		pdf.text(200, 230, '|');
+		pdf.text(200, 234, '|');
+		pdf.text(200, 238, '|');
+		pdf.text(200, 242, '|');
+		pdf.text(200, 246, '|');
+		pdf.text(200, 250, '|');
+		pdf.text(200, 254, '|');
+		pdf.text(200, 258, '|');
+		pdf.text(200, 262, '|');
+		pdf.text(200, 266, '|');
+		pdf.text(200, 270, '|');
+		pdf.text(200, 274, '|');
+		pdf.text(200, 278, '|');
+
+
+        pdf.save('Recibo_'+nome+'.pdf');
+        window.location.reload();
+
+      }
+    </script>
+     </head>
+ 
+	<body onload="chama()">
+		
+
+		<nav class="scrollhide-nav">
+			
+		      <ul class="dropdown menu" data-dropdown-menu >
+		        <li>
+		          <a  class="a1" href="#">JA Papelaria e Livraria</a>
+		          <ul class="menu vertical">
+		            <li><a class="a2" href="http://webmail.papelariaja.com.br/" target="_blank">WebMail</a></li>
+		          
+
+		        
+		</nav>
+
+		<div class="top-bar">
+			<header>
+				<center><img src="ja.png" id="numero" width="370"  /></center> 
+			</div>
+			</header>
+		</div>
+        
+        &nbsp;&nbsp;&nbsp;<b><script>Data()</script></b>
+
+        <div id="box">
+		
+		<div class="row" id="content">
+					<br>
+				
+				<div class="blog-post">
+					<div class="callout">
+							<ul class="menu simple">
+								<center><li><h3><b>RECIBO VALE TRANSPORTE</b></h3></li><center>
+							</ul>
+					</div>
+						<div class="multi-step-checkout-process">
+						 
+						      <div class="row">
+					    </div>
+						<br>	
+						                
+ 										  <div class="small- medium-6 column">
+						                
+						                 
+						                  <label>
+						                <h5><b>LOJA</h5></b><select  id="loja"  >
+						                          <option value="PAPELARIA E LIVRARIA J.A.">PAPELARIA E LIVRARIA J.A </option>
+						                          <option value="DINÂMICA COMÉRCIO DE PAPALARIA LTDA.">DINÂMICA COMÉRCIO DE PAPALARIA LTDA </option>
+						                          <option value="JKM MALHARIA, PAPELARIA, LIVRARIA E EVENTOS EIRELI - ME.">JKM MALHARIA, PAPELARIA, LIVRARIA E EVENTOS EIRELI - ME </option>
+						                          <option value="LIVRARIA E PAPELARIA J..">LIVRARIA E PAPELARIA J.A </option>
+						                         
+						                        </select>
+						                    </div>
+
+						                    
+						                
+ 								<div class="small- medium-3 column">    
+						            <h5><b>CNPJ</h5></b><select id="cnpj" >
+						                <option value="31.944.125/0001-01">31.944.125/0001-01</option>
+						                 <option value="27.398.541/0002-57">27.398.541/0002-57</option>
+						                 <option value="12.192.082/0001-00">12.192.082/0001-00</option>
+						                 <option value="31.848.087/0001-85">31.848.087/0001-85</option>
+						             </select>
+						        </div>
+						                    
+						                  <hr class="multi-step-checkout-form-divider">
+						              </div>
+
+						                	<div class="small- medium-2 column">
+						                    <h5><b>VALOR</h5></b><input placeholder="00,00"id="valor" type="number" min="0"   >
+						                 	
+						                 	</div>
+						                 	<div class="small- medium-4 column">
+						                    <h5><b>IMPORTÂNCIA</h5></b><input id="importancia" type="text" placeholder="VALOR POR EXTENSO"  >
+						                 	
+						                 	</div>
+						                 	<hr class="multi-step-checkout-form-divider">
+						                 	
+
+						                 	<div class="small- medium-3 column">
+
+						                 	<fieldset >
+						                 		<legend><b>&nbsp;DIAS TRABALHADOS</b></legend>
+						                 	 <h5><b><center>INÍCIO</h5></b><center> <input id="inicio" type="date" >  <h5><b>FIM</h5></b><input id="fim" type="date"  >
+						                 	
+						                 	</fieldset>
+						                 	</div>
+						                 	<br><br><br>
+
+
+
+
+						                 	<div class="small- medium-1 column">
+
+						                 	<h5><b>DIAS</h5></b><input id="dias" type="number" placeholder="00" min="1" max="31"  > 
+						                 	 	<hr class="multi-step-checkout-form-divider">
+						                 	 </div>
+						                 	 <div class="small- medium-2 column">    
+						            <h5><b>FALTAS</h5></b><select id="faltas" >
+
+						                <option value="NENHUMA">NENHUMA</option>
+						                 <option value="01">01</option>
+						                 <option value="02">02</option>
+						                 <option value="03">03</option>
+						                 <option value="04">04</option>
+						                 <option value="05">05</option>
+						                 <option value="06">06</option>
+						                 <option value="07">07</option>
+						                 <option value="08">08</option>
+						                 <option value="09">09</option>
+						                 <option value="10">10</option>
+						                 <option value="11">11</option>
+						                 <option value="12">12</option>
+						                 <option value="13">13</option>
+						                 <option value="14">14</option>
+						                 <option value="15">15</option>
+						                 <option value="16">16</option>
+						                 <option value="17">17</option>
+						                 <option value="18">18</option>
+						                 <option value="19">19</option>
+						                 <option value="20">20</option>
+						                 <option value="21">21</option>
+						                 <option value="22">22</option>
+						                 <option value="23">23</option>
+						                 <option value="24">24</option>
+						                 <option value="25">25</option>
+						                 <option value="26">26</option>
+						                 <option value="27">27</option>
+						                 <option value="28">28</option>
+						                 <option value="29">29</option>
+						                 <option value="30">30</option>
+						                
+
+
+						             </select>
+						              <hr class="multi-step-checkout-form-divider">
+
+						        </div>
+						                 	 <div class="small- medium-6 column">
+						                 	<h5><b>NOME</h5></b><input id="nome" type="TEXT" placeholder="NOME DO FUNCIONÁRIO(A)"  >
+						                 		<hr class="multi-step-checkout-form-divider">
+						                 	 </div><br><br><br><br><br><br><br><br><br><br>
+						                 	</label>
+						                 	<hr class="multi-step-checkout-form-divider">
+						                 	 <div class="small- medium-6 column">
+						                
+						                 
+						                 
+						                 	 </div><br><br>
+						                 	</label>
+
+									
+						                 	 <center><button class="button"  block id="gerar">Gerar Recibo</button></center></center> 						                
+						
+
+						
+						
+				</div>
+		</div>
+		</div>	
+		
+		</div>
+		
+		
+		<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+		<script src="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.js"></script>
+		<script>
+		      $(document).foundation();
+		</script>
+		
+		
+		
+		
+	    <div  id="contato" class="three-column-footer-contact-form-container">
+	      <footer  id="foo"class="three-column-footer-contact-form" data-equalizer data-equalize-by-row="true">
+
+	        <div class="footer-left" data-equalizer-watch>
+	          <div class="baseline">
+	            <div class="contact-details">
+	            <br><br><br> <br>
+	              <h6>Contato</h6>
+	              <p><i class="fa fa-phone fa-lg" aria-hidden="true"></i> (61) 3032-1335</p>
+	              <p><a href="#"><i class="fa fa-envelope-o" aria-hidden="true"></i> Endereço</a></p>
+	              <p><i class="fa fa-map-marker fa-lg" aria-hidden="true"></i> St. de Habitações Coletivas e Geminadas Norte Comércio Residencial Norte 706/707 Condomínio Bloco G, Entrada 36, da Scrn 706/707 LOJAS 25/31/35 - Asa Norte, Brasília - DF, 70740-680</p>
+	            </div>
+
+	           
+	            
+	          </div>
+	         </div>
+	         <div id="rod">
+	            	Desenvolvido por Rafael Oliveira<br>
+	            	<center>T.I</center>
+	          </div>
+	       
+	      </footer>
+	</body>
+</html>
+
