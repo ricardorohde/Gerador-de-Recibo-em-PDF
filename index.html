@@ -1,0 +1,207 @@
+<!doctype html>
+<html class="no-js" lang="pt-br">
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Recibo Vale Transporte</title>
+	<link rel="stylesheet" href="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="css/estilo.css">
+	<script type="text/javascript" src="js/funcoes.js"></script>
+	<script type="text/javascript" src="js/jspdf.min.js"></script>
+	<script>gerarPDF()</script>
+
+</head>
+
+<body onload="getDados()">
+
+
+
+
+	<nav class="scrollhide-nav">
+		<ul class="dropdown menu" data-dropdown-menu>
+			<li>
+				<a class="a1" href="#">JA Papelaria e Livraria</a>
+				<ul class="menu vertical">
+					<li><a class="a2" href="#" target="_blank">WebMail</a></li>
+
+	</nav>
+
+	<div class="top-bar">
+		<header>
+			<center><img src="ja.png" id="numero" width="370" /></center>
+	</div>
+	</header>
+	</div>
+
+
+
+	&nbsp;&nbsp;&nbsp;<b>
+		<script>Data()</script></b>
+
+	<div id="box">
+
+		<div class="row" id="content">
+			<br>
+
+			<div class="blog-post">
+				<div class="callout">
+					<ul class="menu simple">
+						<center>
+							<li>
+								<h3><b>RECIBO VALE TRANSPORTE</b></h3>
+							</li>
+							<center>
+					</ul>
+				</div>
+				<div class="multi-step-checkout-process">
+
+					<div class="row">
+					</div>
+					<br>
+
+
+
+					<div class="small- medium-6 column">
+						<label>
+							<h5><b>LOJA</h5></b><select id="loja">
+								<option value="PAPELARIA E LIVRARIA J.A.">PAPELARIA E LIVRARIA J.A </option>
+								<option value="DINÂMICA COMÉRCIO DE PAPALARIA LTDA.">DINÂMICA COMÉRCIO DE PAPALARIA LTDA
+								</option>
+								<option value="JKM MALHARIA, PAPELARIA, LIVRARIA E EVENTOS EIRELI - ME.">JKM MALHARIA,
+									PAPELARIA, LIVRARIA E EVENTOS EIRELI - ME </option>
+								<option value="LIVRARIA E PAPELARIA J..">LIVRARIA E PAPELARIA J.A </option>
+
+							</select>
+					</div>
+
+					<div class="small- medium-3 column">
+						<h5><b>CNPJ</h5></b><select id="cnpj">
+							<option value="31.944.125/0001-01">31.944.125/0001-01</option>
+							<option value="27.398.541/0002-57">27.398.541/0002-57</option>
+							<option value="12.192.082/0001-00">12.192.082/0001-00</option>
+							<option value="31.848.087/0001-85">31.848.087/0001-85</option>
+						</select>
+					</div>
+
+					<hr class="multi-step-checkout-form-divider">
+				</div>
+
+				<div class="small- medium-2 column">
+					<h5><b>VALOR</h5></b><input placeholder="00,00" id="valor" type="number" min="0">
+
+				</div>
+				<div class="small- medium-4 column">
+					<h5><b>IMPORTÂNCIA</h5></b><input id="importancia" type="text" placeholder="VALOR POR EXTENSO">
+
+				</div>
+				<hr class="multi-step-checkout-form-divider">
+
+
+				<div class="small- medium-3 column">
+
+					<fieldset>
+						<legend><b>&nbsp;DIAS TRABALHADOS</b></legend>
+						<h5><b>
+								<center>INÍCIO</h5></b>
+						<center> <input id="inicio" type="date">
+							<h5><b>FIM</h5></b><input id="fim" type="date">
+
+					</fieldset>
+				</div>
+				<br><br><br>
+
+				<div class="small- medium-1 column">
+
+					<h5><b>DIAS</h5></b><input id="dias" type="number" placeholder="00" min="1" max="31">
+					<hr class="multi-step-checkout-form-divider">
+				</div>
+				<div class="small- medium-2 column">
+
+					<h5><b>FALTAS</h5></b><select id="faltas">
+						<option value="NENHUMA">NENHUMA</option>
+						<option value="01">01</option>
+						<option value="02">02</option>
+						<option value="03">03</option>
+						<option value="04">04</option>
+						<option value="05">05</option>
+						<option value="06">06</option>
+						<option value="07">07</option>
+						<option value="08">08</option>
+						<option value="09">09</option>
+						<option value="10">10</option>
+						<option value="11">11</option>
+						<option value="12">12</option>
+						<option value="13">13</option>
+						<option value="14">14</option>
+						<option value="15">15</option>
+						<option value="16">16</option>
+						<option value="17">17</option>
+						<option value="18">18</option>
+						<option value="19">19</option>
+						<option value="20">20</option>
+						<option value="21">21</option>
+						<option value="22">22</option>
+						<option value="23">23</option>
+						<option value="24">24</option>
+						<option value="25">25</option>
+						<option value="26">26</option>
+						<option value="27">27</option>
+						<option value="28">28</option>
+						<option value="29">29</option>
+						<option value="30">30</option>
+					</select>
+
+				</div>
+				<div class="small- medium-6 column">
+					<h5><b>NOME</h5></b><input id="nome" type="TEXT" placeholder="NOME DO FUNCIONÁRIO(A)">
+					<hr class="multi-step-checkout-form-divider">
+				</div><br><br><br><br><br><br><br><br><br><br>
+				</label>
+				<hr class="multi-step-checkout-form-divider">
+				<div class="small- medium-6 column">
+
+				</div><br><br>
+				</label>
+
+				<center><button class="button" block id="gerar">Gerar Recibo</button></center>
+				</center>
+
+			</div>
+		</div>
+	</div>
+
+	</div>
+
+	<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+	<script src="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.js"></script>
+	<script>
+		$(document).foundation();
+	</script>
+
+	<div id="contato" class="three-column-footer-contact-form-container">
+		<footer id="foo" class="three-column-footer-contact-form" data-equalizer data-equalize-by-row="true">
+
+			<div class="footer-left" data-equalizer-watch>
+				<div class="baseline">
+					<div class="contact-details">
+						<br><br><br> <br>
+						<h6>Contato</h6>
+						<p><i class="fa fa-phone fa-lg" aria-hidden="true"></i> (61) 3032-1335</p>
+						<p><a href="#"><i class="fa fa-envelope-o" aria-hidden="true"></i> Endereço</a></p>
+						<p><i class="fa fa-map-marker fa-lg" aria-hidden="true"></i> St. de Habitações Coletivas e
+							Geminadas Norte Comércio Residencial Norte 706/707 Condomínio Bloco G, Entrada 36, da Scrn
+							706/707 LOJAS 25/31/35 - Asa Norte, Brasília - DF, 70740-680</p>
+					</div>
+				</div>
+			</div>
+			<div id="rod">
+				Desenvolvido por Rafael Oliveira<br>
+				<center>T.I</center>
+			</div>
+
+		</footer>
+</body>
+
+</html>
